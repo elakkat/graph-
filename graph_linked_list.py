@@ -159,7 +159,7 @@ if __name__ == "__main__":
         probabilities=[0.6,0.75,0.9]
         node_number={}
         edge_number={}
-        mult_factor=10
+        mult_factor=100
         number_of_it=[]
         g = { '0' : ['0']
         }
@@ -220,15 +220,16 @@ if __name__ == "__main__":
         nodes=list(node_number.values())
         edges=list(edge_number.values())
         plt.plot(number_of_it[0:5], nodes[0:5], 'o', number_of_it[0:5],  nodes[5:10], 'x', number_of_it[0:5], nodes[10:16], '*',\
-                 t_t_step,theoretical_nodes[0:149],t_t_step,theoretical_nodes[149:298], t_t_step,theoretical_nodes[298:448] )
+                 t_t_step,theoretical_nodes[0:(mult_factor*5-1)],t_t_step,theoretical_nodes[mult_factor*5-1 : mult_factor*10-2],\
+                 t_t_step,theoretical_nodes[mult_factor*10-2 : mult_factor*15-3] )
         
         plt.title('Nodes')
         plt.show()
-        plt.plot(number_of_it[0:5], edges[0:5], 'o', number_of_it[0:5],  edges[5:10], 'x', number_of_it[0:5], edges[10:16], '*')
-        plt.title('Edges')
-        plt.show()
-        np.save('assignment2_10k.npy', node_number,edge_number) 
-#        G.printgraph()
+#        plt.plot(number_of_it[0:5], edges[0:5], 'o', number_of_it[0:5],  edges[5:10], 'x', number_of_it[0:5], edges[10:16], '*')
+#        plt.title('Edges')
+#        plt.show()
+#        np.save('assignment2_10k.npy', node_number,edge_number) 
+##        G.printgraph()
             
             
 #        nx.draw_shell(G, nlist=[range(1, 100), range(100)], with_labels=True, font_weight='bold')
